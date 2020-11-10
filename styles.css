@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  width: 250px;
+  height: 350px;
+  background-color: #171717;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  text-align: center;
+  color: #fafafa;
+  padding: 1rem;
+}
