@@ -1,11 +1,3 @@
-// Checks if user has already a theme saved
-window.onload = () => {
-  let hasTheme = localStorage.getItem("@notionThemer");
-  if (hasTheme) {
-    alert("HAS SAVED THEME");
-  }
-};
-
 // Helper function to save the themer info
 function persist(key, value) {
   let theme = JSON.parse(localStorage.getItem("@notionThemer"));
