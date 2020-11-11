@@ -1,9 +1,17 @@
+function getInputValue(id) {
+  return document.getElementById(id).value;
+}
+
 function handleClick() {
   chrome.tabs.query({ currentWindow: true, active: true }, (tabs) => {
-    chrome.tabs.sendMessage(tabs[0].id, "setPageBGColor");
+    chrome.tabs.sendMessage(tabs[0].id, {
+      setPageBGColor: getInputValue("bgColor"),
+      setAllFontsColors: getInputValue("allFontsColor"),
+      setSidebarBGColor: getInputValue("sidebarBGColor"),
+    });
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("btn").addEventListener("click", handleClick);
+  document.getElementById("applyBtn").addEventListener("click", handleClick);
 });

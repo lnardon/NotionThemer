@@ -1,6 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 html {
@@ -14,6 +15,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .title {
@@ -22,4 +24,39 @@ body {
   text-align: center;
   color: #fafafa;
   padding: 1rem;
+}
+
+.themeOptions {
+  width: 100%;
+}
+
+.optionDiv {
+  width: 100%;
+  padding: 1rem;
+}
+
+.optionTitle {
+  color: #fafafa;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
+}
+
+.optionInput {
+  width: 100%;
+  background-color: #272727;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+  color: #fafafa;
+}
+
+#applyBtn {
+  background-color: #fafafa;
+  border: none;
+  outline: none;
+  width: 100px;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  color: #171717;
+  font-weight: 700;
 }
