@@ -53,7 +53,7 @@ function gotMessage(message, sender, sendResponse) {
       //   persist(key, message[key]);
       //   break;
       default:
-        alert("Found No Function");
+      // alert("Found No Function");
     }
   });
 }

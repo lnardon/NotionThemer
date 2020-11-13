@@ -2,6 +2,10 @@
 
 NotionThemer is a chrome extension to create your custom and exclusive Notion Theme.
 
+<p align="center">
+  <img src="./demo.gif">
+</p>
+
 ## How it works
 
 With this extension you select the color of each area of the notion website by supplying the HEX Code of the chosen color
