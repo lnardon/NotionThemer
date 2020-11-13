@@ -17,7 +17,8 @@ function handleClick() {
   const theme = {
     setPageBGColor: getInputValue("setPageBGColor"),
     setAllFontsColors: getInputValue("setAllFontsColors"),
-    // setSidebarBGColor: getInputValue("setSidebarBGColor"),
+    setSidebarBGColor: getInputValue("setSidebarBGColor"),
+    changeFont: "",
   };
 
   localStorage.setItem("notionTheme", JSON.stringify(theme));
