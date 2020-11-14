@@ -51,6 +51,10 @@ function gotMessage(message, sender, sendResponse) {
         changeAllFontsColors(message[key]);
         persist(key, message[key]);
         break;
+      case "setIconsColor":
+        changeIconsColor(message[key]);
+        persist(key, message[key]);
+        break;
       // case "changeFont":
       //   changeFont(message[key]);
       //   persist(key, message[key]);
@@ -92,9 +96,42 @@ function changeBGColor(color) {
 }
 
 function changeAllFontsColors(color) {
-  let divs = document.querySelectorAll("div");
-  divs.forEach((div) => {
-    div.style.color = color;
+  observeDOM(document.querySelector("body"), (m) => {
+    let addedNodes = [];
+    let removedNodes = [];
+
+    m.forEach(
+      (record) =>
+        record.addedNodes.length & addedNodes.push(...record.addedNodes)
+    );
+
+    m.forEach(
+      (record) =>
+        record.removedNodes.length & removedNodes.push(...record.removedNodes)
+    );
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => {
+      div.style.color = color;
+    });
+  });
+}
+
+function changeIconsColor(color) {
+  observeDOM(document.querySelector("body"), (m) => {
+    let addedNodes = [];
+    let removedNodes = [];
+
+    m.forEach(
+      (record) =>
+        record.addedNodes.length & addedNodes.push(...record.addedNodes)
+    );
+
+    m.forEach(
+      (record) =>
+        record.removedNodes.length & removedNodes.push(...record.removedNodes)
+    );
+    let icons = document.querySelectorAll("svg");
+    icons.forEach((icon) => (icon.style.fill = color));
   });
 }
 
