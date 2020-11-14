@@ -17,7 +17,6 @@ function handleClick() {
   const theme = {
     setPageBGColor: getInputValue("setPageBGColor"),
     setAllFontsColors: getInputValue("setAllFontsColors"),
-    setSidebarBGColor: getInputValue("setSidebarBGColor"),
     changeFont: "a",
   };
 

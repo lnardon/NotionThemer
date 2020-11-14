@@ -51,14 +51,10 @@ function gotMessage(message, sender, sendResponse) {
         changeAllFontsColors(message[key]);
         persist(key, message[key]);
         break;
-      case "setSidebarBGColor":
-        setSidebarBGColor(message[key]);
-        persist(key, message[key]);
-        break;
-      case "changeFont":
-        changeFont(message[key]);
-        persist(key, message[key]);
-        break;
+      // case "changeFont":
+      //   changeFont(message[key]);
+      //   persist(key, message[key]);
+      //   break;
       default:
       // alert("Found No Function");
     }
@@ -102,36 +98,30 @@ function changeAllFontsColors(color) {
   });
 }
 
-function setSidebarBGColor(color) {
-  document.getElementsByClassName(
-    "notion-sidebar"
-  )[0].style.backgroundColor = color;
-}
+// function changeFont() {
+//   let link = document.createElement("link");
+//   link.rel = "stylesheet";
+//   link.href =
+//     "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap";
+//   document.head.appendChild(link);
+//   observeDOM(document.querySelector("body"), (m) => {
+//     let addedNodes = [];
+//     let removedNodes = [];
 
-function changeFont() {
-  let link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href =
-    "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap";
-  document.head.appendChild(link);
-  observeDOM(document.querySelector("body"), (m) => {
-    let addedNodes = [];
-    let removedNodes = [];
+//     m.forEach(
+//       (record) =>
+//         record.addedNodes.length & addedNodes.push(...record.addedNodes)
+//     );
 
-    m.forEach(
-      (record) =>
-        record.addedNodes.length & addedNodes.push(...record.addedNodes)
-    );
-
-    m.forEach(
-      (record) =>
-        record.removedNodes.length & removedNodes.push(...record.removedNodes)
-    );
-    let divs = document.querySelectorAll("div");
-    divs.forEach((div) => {
-      if (div.style.fontFamily) {
-        div.style.fontFamily = "sans-serif";
-      }
-    });
-  });
-}
+//     m.forEach(
+//       (record) =>
+//         record.removedNodes.length & removedNodes.push(...record.removedNodes)
+//     );
+//     let divs = document.querySelectorAll("div");
+//     divs.forEach((div) => {
+//       if (div.style.fontFamily) {
+//         div.style.fontFamily = "sans-serif";
+//       }
+//     });
+//   });
+// }
