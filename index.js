@@ -18,7 +18,7 @@ function handleClick() {
     setPageBGColor: getInputValue("setPageBGColor"),
     setAllFontsColors: getInputValue("setAllFontsColors"),
     setSidebarBGColor: getInputValue("setSidebarBGColor"),
-    changeFont: "",
+    changeFont: "a",
   };
 
   localStorage.setItem("notionTheme", JSON.stringify(theme));

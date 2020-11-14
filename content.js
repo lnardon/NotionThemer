@@ -31,6 +31,13 @@ const observeDOM = (() => {
   };
 })();
 
+window.onload = () => {
+  let themeInfo = localStorage.getItem("@notionThemer");
+  if (themeInfo) {
+    gotMessage(JSON.parse(themeInfo));
+  }
+};
+
 // Script Listener to modify theme
 function gotMessage(message, sender, sendResponse) {
   let keys = Object.keys(message);
@@ -48,10 +55,10 @@ function gotMessage(message, sender, sendResponse) {
         setSidebarBGColor(message[key]);
         persist(key, message[key]);
         break;
-      // case "changeFont":
-      //   changeFont(message[key]);
-      //   persist(key, message[key]);
-      //   break;
+      case "changeFont":
+        changeFont(message[key]);
+        persist(key, message[key]);
+        break;
       default:
       // alert("Found No Function");
     }
@@ -107,8 +114,24 @@ function changeFont() {
   link.href =
     "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap";
   document.head.appendChild(link);
-  let divs = document.querySelectorAll("div");
-  divs.forEach((div) => {
-    div.style.fontFamily = "Nunito, sans-serif;";
+  observeDOM(document.querySelector("body"), (m) => {
+    let addedNodes = [];
+    let removedNodes = [];
+
+    m.forEach(
+      (record) =>
+        record.addedNodes.length & addedNodes.push(...record.addedNodes)
+    );
+
+    m.forEach(
+      (record) =>
+        record.removedNodes.length & removedNodes.push(...record.removedNodes)
+    );
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => {
+      if (div.style.fontFamily) {
+        div.style.fontFamily = "sans-serif";
+      }
+    });
   });
 }
