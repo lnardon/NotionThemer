@@ -13,5 +13,10 @@
     "default_popup": "index.html",
     "default_title": "Notion Themer",
     "default_icon": "./logo.png"
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   }
 }
