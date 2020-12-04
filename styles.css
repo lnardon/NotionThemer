@@ -44,6 +44,7 @@ body {
 .optionTitle {
   color: #fafafa;
   margin-bottom: 0.25rem;
+  font-size: 1.1rem;
   font-weight: 400;
   width: 300px;
 }
@@ -54,20 +55,37 @@ body {
   outline: none;
   color: #fafafa;
   width: 90px;
-  padding: 0.25rem;
+  padding: 0.35rem;
+  border-radius: 0.125rem;
+  text-transform: uppercase;
+}
+
+.optionWheel {
+  -webkit-appearance: none;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  border-radius: 0.125rem;
+}
+
+.optionWheel::-webkit-color-swatch-wrapper,
+.optionWheel::-webkit-color-swatch {
+  border: none;
+  padding: 0;
 }
 
 #applyBtn {
   background-color: transparent;
   border: none;
   outline: none;
-  width: 100px;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 2rem;
   color: #fafafa;
   font-weight: 700;
-  font-size: 1rem;
-  margin: 1.25rem;
-  border: 2px solid #fafafa;
+  font-size: 0.9rem;
+  margin: 1.5rem;
+  border: 1px solid #fafafa;
   border-radius: 0.125rem;
 }
