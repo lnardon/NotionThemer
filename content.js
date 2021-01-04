@@ -55,10 +55,6 @@ function gotMessage(message, sender, sendResponse) {
         changeIconsColor(message[key]);
         persist(key, message[key]);
         break;
-      // case "changeFont":
-      //   changeFont(message[key]);
-      //   persist(key, message[key]);
-      //   break;
       default:
       // alert("Found No Function");
     }
@@ -67,7 +63,6 @@ function gotMessage(message, sender, sendResponse) {
 chrome.runtime.onMessage.addListener(gotMessage);
 
 // FUNCTIONS TO MODIFY NOTION'S WEBSITE THEME
-
 function changeBGColor(color) {
   observeDOM(document.querySelector("body"), (m) => {
     let addedNodes = [];
@@ -87,7 +82,12 @@ function changeBGColor(color) {
       if (
         div.style.backgroundColor === "rgb(47, 52, 55)" ||
         div.style.backgroundColor === "rgb(63, 68, 71)" ||
-        div.style.backgroundColor === "rgb(55, 60, 63)"
+        div.style.backgroundColor === "rgb(55, 60, 63)" ||
+        div.style.backgroundColor === "rgb(64, 68, 71)" ||
+        div.style.background === "white" ||
+        div.style.backgroundColor === "white" ||
+        div.style.backgroundColor === "rgb(247, 246, 243)" ||
+        div.style.backgroundColor === "rgb(251, 250, 249)"
       ) {
         div.style.backgroundColor = color;
       }
@@ -134,31 +134,3 @@ function changeIconsColor(color) {
     icons.forEach((icon) => (icon.style.fill = color));
   });
 }
-
-// function changeFont() {
-//   let link = document.createElement("link");
-//   link.rel = "stylesheet";
-//   link.href =
-//     "https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap";
-//   document.head.appendChild(link);
-//   observeDOM(document.querySelector("body"), (m) => {
-//     let addedNodes = [];
-//     let removedNodes = [];
-
-//     m.forEach(
-//       (record) =>
-//         record.addedNodes.length & addedNodes.push(...record.addedNodes)
-//     );
-
-//     m.forEach(
-//       (record) =>
-//         record.removedNodes.length & removedNodes.push(...record.removedNodes)
-//     );
-//     let divs = document.querySelectorAll("div");
-//     divs.forEach((div) => {
-//       if (div.style.fontFamily) {
-//         div.style.fontFamily = "sans-serif";
-//       }
-//     });
-//   });
-// }
